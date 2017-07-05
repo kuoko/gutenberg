@@ -2,7 +2,7 @@
     {
         "blockName": "core/image",
         "attrs": null,
-        "rawContent": "\n<figure class=\"wp-block__core__image\"><img src=\"https://cldup.com/uuUqE_dXzy.jpg\" /></figure>\n"
+        "rawContent": "\n<figure class=\"wp-block-image\"><img src=\"https://cldup.com/uuUqE_dXzy.jpg\" /></figure>\n"
     },
     {
         "attrs": {},

@@ -23,7 +23,8 @@ import { parseBlockAttributes } from './parser';
  * @return {string}             The block's default class
  */
 export function getBlockDefaultClassname( blockName ) {
-	return 'wp-block__' + blockName.replace( /\//g, '__' );
+	// Drop common prefixes: 'core/' or 'core-' (in 'core-embed/')
+	return 'wp-block-' + blockName.replace( /\//, '-' ).replace( /^core-/, '' );
 }
 
 /**

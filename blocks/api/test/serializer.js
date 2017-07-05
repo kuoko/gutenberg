@@ -44,10 +44,10 @@ describe( 'block serializer', () => {
 					{ fruit: 'Bananas' }
 				);
 
-				expect( saved ).to.equal( '<div class="wp-block__core__fruit">Bananas</div>' );
+				expect( saved ).to.equal( '<div class="wp-block-fruit">Bananas</div>' );
 			} );
 
-			it( 'should use the namespace in the classname', () => {
+			it( 'should use the namespace in the classname for non-core blocks', () => {
 				const saved = getSaveContent(
 					{
 						save: ( { attributes } ) => createElement( 'div', null, attributes.fruit ),
@@ -56,7 +56,7 @@ describe( 'block serializer', () => {
 					{ fruit: 'Bananas' }
 				);
 
-				expect( saved ).to.equal( '<div class="wp-block__myplugin__fruit">Bananas</div>' );
+				expect( saved ).to.equal( '<div class="wp-block-myplugin-fruit">Bananas</div>' );
 			} );
 
 			it( 'should allow overriding the className', () => {
@@ -174,7 +174,7 @@ describe( 'block serializer', () => {
 					},
 				},
 			];
-			const expectedPostContent = '<!-- wp:core/test-block {"stuff":"left \\u0026 right \\u002d\\u002d but \\u003cnot\\u003e"} -->\n<p class="wp-block__core__test-block">Ribs & Chicken</p>\n<!-- /wp:core/test-block -->';
+			const expectedPostContent = '<!-- wp:core/test-block {"stuff":"left \\u0026 right \\u002d\\u002d but \\u003cnot\\u003e"} -->\n<p class="wp-block-test-block">Ribs & Chicken</p>\n<!-- /wp:core/test-block -->';
 
 			expect( serialize( blockList ) ).to.eql( expectedPostContent );
 		} );
